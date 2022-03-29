@@ -1,0 +1,4 @@
+<ul style="list-style: none;"><li><i>Produkt</i><i>Preis</i></li></ul>
+<ul>
+    <li *ngFor="let product of products"><i>{{product.bezeichnung}}</i> <i>{{product.preis}}€</i><button class="btn btn-danger" (click)="purchaseProduct(product.id)"></button></li>
+</ul>

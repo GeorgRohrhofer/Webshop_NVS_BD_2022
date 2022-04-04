@@ -1,1 +1,1 @@
-<p>gr-warenkorb works!</p>
+<button *ngFor="let product of warenkorb" class="btn btn-default" (click) = "removeFromWarenkorb(product.id)" style="display: inline-block; height: auto; width: 90%; text-align: start; margin-left: 5%; margin-bottom: 3%;"><i>{{product.bezeichnung}}</i> <br><i>{{product.preis}}€</i></button>

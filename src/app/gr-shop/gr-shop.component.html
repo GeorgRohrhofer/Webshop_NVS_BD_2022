@@ -1,4 +1,1 @@
-<ul style="list-style: none;"><li><i>Produkt</i><i>Preis</i></li></ul>
-<ul>
-    <li *ngFor="let product of products"><i>{{product.bezeichnung}}</i> <i>{{product.preis}}€</i><button class="btn btn-danger" (click)="purchaseProduct(product.id)"></button></li>
-</ul>
+<button *ngFor="let product of products" class="btn btn-default" (click)="purchaseProduct(product.id)" style="display: inline-block; height: auto; width: 90%; text-align: start; margin-left: 5%; margin-bottom: 3%;"><i>{{product.bezeichnung}}</i> <br><i>{{product.preis}}€</i></button>

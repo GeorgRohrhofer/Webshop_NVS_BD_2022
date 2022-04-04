@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../gr-data.service';
 
 @Component({
   selector: 'app-gr-admin',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GrAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ds: DataService) { }
 
   ngOnInit(): void {
   }
-
+  newEntry = '';
+  newArtikelnummer = '';
+  newPrice = 0;
+  msg = '';
+  Artikelnummer = ''
+  addProduct(): void {
+  this.ds.addTodo(this.newEntry, this.newArtikelnummer, this.newPrice).subscribe(); // Service-Methode
+  this.msg = 'Item created'
+  this.newEntry = '';
+  this.newPrice = 0;
+  this.newArtikelnummer = '';
+ }
+ deleteProduct(): void {
+  this.ds.deleteTodo(this.Artikelnummer) // Service-Methode
+  this.Artikelnummer = '';
+ }
 }

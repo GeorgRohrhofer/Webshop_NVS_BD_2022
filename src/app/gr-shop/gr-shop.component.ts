@@ -13,12 +13,13 @@ export class GrShopComponent implements OnInit {
   
   products: Produkt[] = [];
   
-  ngOnInit(): void {
+  ngOnInit(){
     this.ds.getProducts().subscribe((data: Produkt[])=> this.products = data)
   }
 
   purchaseProduct(id:number){
     console.log("Purchase item");
+    this.ds.addToWarenkorb(id);
 }
 
 }

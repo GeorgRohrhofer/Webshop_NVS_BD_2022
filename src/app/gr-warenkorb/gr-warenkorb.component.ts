@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../gr-data.service';
+import { Produkt } from '../produkt';
 
 @Component({
   selector: 'app-gr-warenkorb',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GrWarenkorbComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ds: DataService) { }
+  
+  warenkorb: Produkt[] = [];
+  
+  ngOnInit(){
+    this.warenkorb = this.ds.getWarenkorb();
+  }
 
-  ngOnInit(): void {
+  removeFromWarenkorb(id: number){
+    this.ds.removeFromWarenkorb(id);
+    this.ngOnInit();
   }
 
 }

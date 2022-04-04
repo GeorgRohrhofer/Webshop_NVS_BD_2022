@@ -7,6 +7,8 @@ import { GrHeaderComponent } from './gr-header/gr-header.component';
 import { GrShopComponent } from './gr-shop/gr-shop.component';
 import { GrWarenkorbComponent } from './gr-warenkorb/gr-warenkorb.component';
 import { GrAdminComponent } from './gr-admin/gr-admin.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { GrAdminComponent } from './gr-admin/gr-admin.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

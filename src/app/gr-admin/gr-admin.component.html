@@ -1,1 +1,13 @@
-<p>gr-admin works!</p>
+<div> 
+    <label>Neues Produkt: </label>
+    <input [(ngModel)]= "newArtikelnummer" placeholder="Item Number" style="margin-right: 5px;"/><input [(ngModel)]= "newEntry" placeholder="New Product" style="margin-right: 5px;"/> <input [(ngModel)]= "newPrice" placeholder="price" style="margin-right: 5px;" type="number"/>
+    <button (click)="addProduct()" class="btn btn-primary">Insert</button><br/>
+    {{ msg }} 
+</div>
+
+<div>
+    <label>Produkt löschen: </label>
+    <input [(ngModel)]= "Artikelnummer" placeholder="Item Number" style="margin-right: 5px;"/>
+    <button (click)="deleteProduct()" class="btn btn-danger">Delete</button><br/>
+    {{ msg }} 
+</div>

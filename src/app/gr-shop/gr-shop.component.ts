@@ -17,9 +17,9 @@ export class GrShopComponent implements OnInit {
     this.ds.getProducts().subscribe((data: Produkt[])=> this.products = data)
   }
 
-  purchaseProduct(id:number){
+  purchaseProduct(product: Produkt){
     console.log("Purchase item");
-    this.ds.addToWarenkorb(id);
-}
+    this.ds.addToWarenkorb(product);
+  }
 
 }

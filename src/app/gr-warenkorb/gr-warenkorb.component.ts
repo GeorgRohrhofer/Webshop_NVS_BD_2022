@@ -17,8 +17,8 @@ export class GrWarenkorbComponent implements OnInit {
     this.warenkorb = this.ds.getWarenkorb();
   }
 
-  removeFromWarenkorb(id: number){
-    this.ds.removeFromWarenkorb(id);
+  removeFromWarenkorb(product: Produkt){
+    this.ds.removeFromWarenkorb(product);
     this.ngOnInit();
   }
 

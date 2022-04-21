@@ -22,23 +22,23 @@ export class DataService {
        return this.http.get<Produkt[]>(this.uri);// Observable 
     }
 
-    addTodo(product: string, nummer: string,  price: number) : Observable<Produkt>{
+    addProduct(product: string, nummer: string,  price: number) : Observable<Produkt>{
         return this.http.post<Produkt>(this.uri, {bezeichnung:product, nummer:nummer, preis:price, bestellungen:0}, httpOptions)
       
     } 
 
-    deleteTodo(Artilelnummer: string ) {
-        this.getProducts().subscribe((data : Produkt[]) => {data.forEach(e => {if(e.nummer == Artilelnummer){this.http.delete(this.uri + '/' + e.id, httpOptions).subscribe();}})})
+    deleteProduct(Artikelnummer: string ) {
+        this.getProducts().subscribe((data : Produkt[]) => {data.forEach(e => {if(e.nummer == Artikelnummer){this.http.delete(this.uri + '/' + e.id, httpOptions).subscribe();}})})
     }
 
     getWarenkorb(){
         return this.warenkorb;
     }
 
-    addToWarenkorb(id: number){
-        this.http.get<Produkt>(this.uri + '/' + id).subscribe((data: Produkt) => this.warenkorb.push(data));
+    addToWarenkorb(product: Produkt){
+        this.warenkorb.push(product);
     }
-    removeFromWarenkorb(id: number){
+    removeFromWarenkorb(product: Produkt){
         //this.warenkorb = this.warenkorb.filter(obj => {return obj.id !== id});
         /*
         this.warenkorb.forEach( (item, index) => {
@@ -47,7 +47,7 @@ export class DataService {
         */
 
         for (var i = 0; i < this.warenkorb.length; i++) {
-        if (this.warenkorb[i].id ===id){
+        if (this.warenkorb[i] === product){
             this.warenkorb.splice(i,1);
             break;
         }

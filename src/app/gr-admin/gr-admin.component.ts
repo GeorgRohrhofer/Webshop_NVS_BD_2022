@@ -18,14 +18,14 @@ export class GrAdminComponent implements OnInit {
   msg = '';
   Artikelnummer = ''
   addProduct(): void {
-  this.ds.addTodo(this.newEntry, this.newArtikelnummer, this.newPrice).subscribe(); // Service-Methode
+  this.ds.addProduct(this.newEntry, this.newArtikelnummer, this.newPrice).subscribe(); // Service-Methode
   this.msg = 'Item created'
   this.newEntry = '';
   this.newPrice = 0;
   this.newArtikelnummer = '';
  }
  deleteProduct(): void {
-  this.ds.deleteTodo(this.Artikelnummer) // Service-Methode
+  this.ds.deleteProduct(this.Artikelnummer) // Service-Methode
   this.Artikelnummer = '';
  }
 }

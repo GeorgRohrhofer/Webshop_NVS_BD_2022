@@ -1,1 +1,1 @@
-<button *ngFor="let product of products" class="btn btn-default" (click)="purchaseProduct(product.id)" style="display: inline-block; height: auto; width: 90%; text-align: start; margin-left: 5%; margin-bottom: 3%;"><i>{{product.bezeichnung}}</i> <br><i>{{product.preis}}€</i></button>
+<button *ngFor="let product of products" class="btn btn-default" (click)="purchaseProduct(product)" style="display: inline-block; height: auto; width: 90%; text-align: start; margin-left: 5%; margin-bottom: 3%;"><i>{{product.bezeichnung}}</i> <br><i>{{product.preis}}€</i></button>

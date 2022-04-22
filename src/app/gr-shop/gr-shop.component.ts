@@ -12,7 +12,9 @@ export class GrShopComponent implements OnInit {
   constructor(private ds: DataService) { }
   
   products: Produkt[] = [];
-  
+  msg = '';
+  cl = '';
+
   ngOnInit(){
     this.ds.getProducts().subscribe((data: Produkt[])=> this.products = data)
   }
@@ -20,6 +22,8 @@ export class GrShopComponent implements OnInit {
   purchaseProduct(product: Produkt){
     console.log("Purchase item");
     this.ds.addToWarenkorb(product);
+    this.msg = 'Ein Produkt wurde in den Warenkorb gelegt';
+    this.cl = 'alert alert-success';
   }
 
 }

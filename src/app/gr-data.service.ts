@@ -39,13 +39,6 @@ export class DataService {
         this.warenkorb.push(product);
     }
     removeFromWarenkorb(product: Produkt){
-        //this.warenkorb = this.warenkorb.filter(obj => {return obj.id !== id});
-        /*
-        this.warenkorb.forEach( (item, index) => {
-            if(item.id === id){ this.warenkorb.splice(index,1); break}
-          });
-        */
-
         for (var i = 0; i < this.warenkorb.length; i++) {
         if (this.warenkorb[i] === product){
             this.warenkorb.splice(i,1);
@@ -53,6 +46,14 @@ export class DataService {
         }
         }
 
+    }
+
+    purchase(){
+
+        for (var i = 0; i < this.warenkorb.length; i++) {
+            this.http.get<Produkt>(this.uri + '/' + this.warenkorb[i].id).subscribe((data : Produkt) => {this.http.put(this.uri + '/' + data.id, {bestellungen : data.bestellungen + 1}, httpOptions).subscribe();});
+        }
+        this.warenkorb = [];
     }
 
   }
